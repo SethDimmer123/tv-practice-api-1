@@ -8,7 +8,7 @@ async function main(show) {
   const shows = await fetch(url + show)
   const showsData = await shows.json();
   console.log(showsData)
-  ratedshowsElem.innerHTML = showsData.map((show) => showHTML(show)).join("")
+  ratedshowsElem.innerHTML = showsData.slice(0,6).map((show) => showHTML(show)).join("")
 
 
   // showsData.forEach(show => {
@@ -26,7 +26,7 @@ function showHTML(show) {
   <div class="show-card">
     <div class="user-card__container">
        <figure>
-        <img src="${show.show.image.medium}"> 
+        <img src="${show.show.image?.medium}"> 
         <h3 class="">${show.show.name}</h3>
         <h4 class="year"></h4>
       </figure>
