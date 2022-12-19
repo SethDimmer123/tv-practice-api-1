@@ -18,9 +18,9 @@ async function main(show) {
 
 const arr = [{id:39201}];
 
-const newArr = arr.filter(object => {
-  return object.id !== 39201
-})
+// const newArr = arr.filter(object => {
+//   return object.id !== 39201
+// })
 }
 
 main('test');
