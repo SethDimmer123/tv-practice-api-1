@@ -26,7 +26,7 @@ function showHTML(show) {
   <div class="show-card">
     <div class="user-card__container">
        <figure>
-        <img src="${show.image}"> 
+        <img src="${show.image.medium}"> 
         <h3 class="">${show.show.name}</h3>
         <h4 class="year"></h4>
       </figure>
