@@ -2,12 +2,14 @@
 
 const url = "https://api.tvmaze.com/search/shows?q="
 
-const ratedshowsElem = document.querySelector(' .show-list')
+const ratedshowsElem = document.querySelector(' .show-list'); // we are accessing the .show-list element
+const searchBar = document.querySelector(".homepage__keyword--input"); // we are accessing the .homepage__keyword--input element
+const searchButton = document.querySelector(".homepage__button--absolute"); // we are accessing the .homepage__button--absolute
 
 async function main(show) {
-  const shows = await fetch(url + show)
-  const showsData = await shows.json();
-  console.log(showsData)
+  const shows = await fetch(url + show) //fetching the url and show arguement 
+  const showsData = await shows.json(); //converting from backend to frontend
+  console.log(showsData) // console logging the data
   ratedshowsElem.innerHTML = showsData.filter(show => show.show.image?.medium).map((show) => showHTML(show)).join("")
 
 
@@ -16,14 +18,15 @@ async function main(show) {
   // })
  
 
-const arr = [{id:39201}];
+// const arr = [{id:39201}];
 
 // const newArr = arr.filter(object => {
 //   return object.id !== 39201
 // })
 }
 
-main('test');
+main(localStorage.getItem("searchBarValue") || ""); //
+localStorage.removeItem("searchBarValue");
 
 
 
@@ -42,12 +45,33 @@ function showHTML(show) {
 }
 
 
-// all code before having loading state
+
+
+
+searchBar.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    main(searchBar.value);
+
+    if (!window.location.href.includes("tvshow.html")) {
+      localStorage.setItem("searchBarValue", searchBar.value);
+      window.location.href += "/tvshow.html";
+    }
+  }
+});
+
+searchButton.addEventListener("click", (e) => {
+  main(searchBar.value);
+});
+
+
+// add a click evt listener to home page button
+// whenever we click, set local storage searchBarValue to searchBar.value
+// redirect the user to the shows page
 
 
 
 
-
-
-
+// localstorage.setItem(uniqueId, value) => sets a value along with its unique id
+// localstorage.getItem(uniqueId) => gets value of the unique id
+// localstorage.removeItem(uniqueId) => removes something from localstorage if the ids match
 
