@@ -8,7 +8,7 @@ async function main(show) {
   const shows = await fetch(url + show)
   const showsData = await shows.json();
   console.log(showsData)
-  ratedshowsElem.innerHTML = showsData.slice(0,6).map((show) => showHTML(show)).join("")
+  ratedshowsElem.innerHTML = showsData.filter((show) => showHTML(show)).map((show) => showHTML(show)).join("")
 
 
   // showsData.forEach(show => {
