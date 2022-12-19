@@ -42,6 +42,9 @@ function showHTML(show) {
 }
 
 
+// all code before having loading state
+
+
 
 
 
