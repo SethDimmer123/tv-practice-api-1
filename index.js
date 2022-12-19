@@ -25,7 +25,7 @@ async function main(show) {
 // })
 }
 
-main(localStorage.getItem("searchBarValue") || ""); //
+main(localStorage.getItem("searchBarValue") || ""); // 
 localStorage.removeItem("searchBarValue");
 
 
@@ -64,7 +64,7 @@ searchButton.addEventListener("click", (e) => {
 });
 
 
-// add a click evt listener to home page button
+// add a click event listener to home page button
 // whenever we click, set local storage searchBarValue to searchBar.value
 // redirect the user to the shows page
 
