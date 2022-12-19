@@ -183,7 +183,7 @@ nav {
     max-width: 200px;
 } */
 
-.movie-list{
+.show-list{
     width: auto;
     display: flex;
     flex-wrap: wrap;
